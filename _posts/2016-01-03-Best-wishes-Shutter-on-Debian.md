@@ -35,6 +35,7 @@ I re-opened my FileZilla client and took my screenshots again using shutter and 
 Once my document was finished I figured I'd better replace the default Gnome screenshot tool by shutter completely. I think the developpers of shutter figured this would be something people would naturally be wanting to do since they created an article on [how to do this](http://shutter-project.org/faq-help/set-shutter-as-the-default-screenshot-tool/#gnome) in their FAQ section.
 
 I added two links for now:
+
 - Screenshot Area-Select bound to **PrtSc**-button
     - `shutter --select --delay=0 -c`
         - *--select* lets you select the area you want to capture
