@@ -38,14 +38,14 @@ I added two links for now:
 
 - Screenshot Area-Select bound to **PrtSc**-button
     - `shutter --select --delay=0 -c`
-        - *--select* lets you select the area you want to capture
-        - *--delay=0* sets the delay to 0 seconds
-        - *-c* includes your cursor in the screenshot
+        - *--select*    lets you select the area you want to capture
+        - *--delay=0*   Sets the delay to 0 seconds
+        - *-c*          includes your cursor in the screenshot
         - Screenshot Window Select
     - `shutter -w --delay=0 -c`
-        - *-w* makes you select the windows you want to capture
-        - *--delay=0* sets the delay to 0 seconds
-        - *-c* includes your cursor in the screenshot
+        - *-w*          makes you select the windows you want to capture
+        - *--delay=0*   sets the delay to 0 seconds
+        - *-c*          includes your cursor in the screenshot
 - For more options check out the shutter man pages
     - `man shutter`
 
