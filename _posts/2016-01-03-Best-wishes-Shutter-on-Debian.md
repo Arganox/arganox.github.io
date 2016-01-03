@@ -15,8 +15,8 @@ hmm... bummer, this would be very time consuming for something very trivial...
 At work (on my Windows 7 machine) I got used to the built in [snipping tool](https://en.wikipedia.org/wiki/Snipping_Tool) provided my Microsoft. The tool lets you quickly select an area to capture, edit the captured area and copy it to clipboard or save it somewhere. So you can image I didn't want to continue before upgrading my machine's default screenshot tool to something more user friendly.
 
 Next I stumbled upon this tool: [Shutter](http://shutter-project.org/)
-This seems to do everything I need from a screenshot tool!
 
+This seems to do everything I need from a screenshot tool!
 So I launched my terminal and installed shutter from the testing repo's
 
 ```
@@ -36,17 +36,17 @@ Once my document was finished I figured I'd better replace the default Gnome scr
 
 I added two links for now:
 - Screenshot Area-Select bound to **PrtSc**-button
-	- `shutter --select --delay=0 -c`
-		- *--select* lets you select the area you want to capture
-		- *--delay=0* sets the delay to 0 seconds
-		- *-c* includes your cursor in the screenshot
-- Screenshot Window Select
-	- `shutter -w --delay=0 -c`
-		- *-w* makes you select the windows you want to capture
-		- *--delay=0* sets the delay to 0 seconds
-		- *-c* includes your cursor in the screenshot
+    - `shutter --select --delay=0 -c`
+        - *--select* lets you select the area you want to capture
+        - *--delay=0* sets the delay to 0 seconds
+        - *-c* includes your cursor in the screenshot
+        - Screenshot Window Select
+    - `shutter -w --delay=0 -c`
+        - *-w* makes you select the windows you want to capture
+        - *--delay=0* sets the delay to 0 seconds
+        - *-c* includes your cursor in the screenshot
 - For more options check out the shutter man pages
-	- `man shutter`
+    - `man shutter`
 
 Than I wondered if there was a way to disable the other default screenshot keybindings in Gnome. And guess what... there is! don't you just love Linux :)
 
