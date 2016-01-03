@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: A new year, a new screenschot tool
 ---
 
