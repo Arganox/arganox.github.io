@@ -18,6 +18,7 @@ Next I stumbled upon this tool: [Shutter](http://shutter-project.org/)
 This seems to do everything I need from a screenshot tool!
 
 So I launched my terminal and installed shutter from the testing repo's
+
 ```
 sudo apt-get install shutter
 ```
