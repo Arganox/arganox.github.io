@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: A new year, a new screenschot tool
 ---
 
@@ -12,7 +12,7 @@ So I created an empty writer file in my Libre Office and launched my FileZilla c
 
 At work (on my Windows 7 machine) I got used to the built in [snipping tool](https://en.wikipedia.org/wiki/Snipping_Tool) provided my Microsoft. The tool lets you quickly select an area to capture, edit the captured area and copy it to clipboard or save it somewhere. So you can image I didn't want to continue before upgrading my machine's default screenshot tool to something more user friendly.
 
-Next I stumbled upon this tool: (Shutter)[http://shutter-project.org/]
+Next I stumbled upon this tool: [Shutter](http://shutter-project.org/)
 This seems to do everything I need from a screenshot tool!
 
 So I launched my terminal and installed shutter from the testing repo's
@@ -21,7 +21,7 @@ sudo apt-get install shutter
 ```
 
 Next I launched shutter and, once it was done loading it's (perl) modules, opened the preferences to check out it's capabilities (alt+p). The only thing I modified for now was the **Save** settings so my screenshots aren't automatically saved.
-![Shutter preferences][/images/20160103/shutter-preferences]
+![Shutter preferences][/images/20160103/shutter-preferences.png]
 
 While scrolling through the preferences I noticed that shutter has some other cool features! 
 For example you can make it upload you screencaptures to things like an FTP server, Dropbox, etc. It also supports plugins, by default it comes shipped with some effect plugins like a sepia- and barrel distortion filter. 
@@ -32,23 +32,23 @@ I re-opened my FileZilla client and took my screenshots again using shutter and 
 Once my document was finished I figured I'd better replace the default Gnome screenshot tool by shutter completely. I think the developpers of shutter figured this would be something people would naturally be wanting to do since they created an article on [how to do this](http://shutter-project.org/faq-help/set-shutter-as-the-default-screenshot-tool/#gnome) in their FAQ section.
 
 I added two links for now:
-* Screenshot Area-Select bound to **PrtSc**-button
-	* `shutter --select --delay=0 -c`
-		* *--select* lets you select the area you want to capture
-		* *--delay=0* sets the delay to 0 seconds
-		* *-c* includes your cursor in the screenshot
-* Screenshot Windows Select
-	* `shutter -w --delay=0 -c`
-		* *-w* makes you select the windows you want to capture
-		* *--delay=0* sets the delay to 0 seconds
-		* *-c* includes your cursor in the screenshot
-* For more options check out the shutter man pages
-	* `man shutter`
+- Screenshot Area-Select bound to **PrtSc**-button
+	- `shutter --select --delay=0 -c`
+		- *--select* lets you select the area you want to capture
+		- *--delay=0* sets the delay to 0 seconds
+		- *-c* includes your cursor in the screenshot
+- Screenshot Window Select
+	- `shutter -w --delay=0 -c`
+		- *-w* makes you select the windows you want to capture
+		- *--delay=0* sets the delay to 0 seconds
+		- *-c* includes your cursor in the screenshot
+- For more options check out the shutter man pages
+	- `man shutter`
 
 Than I wondered if there was a way to disable the other default screenshot keybindings in Gnome. And guess what... there is! don't you just love Linux :)
 
 Open the *system settings* and go to keyboard
-![Select keyboard from system settings menu][/images/20160103/keyboard-system-settings]
+![Select keyboard from system settings menu][/images/20160103/keyboard-system-settings.png]
 
 Under the *Shortcuts* tab select the *Screenshots* submenu. Once there selec the line(s) and hit backspace to disable these keybindings
-![Select the line(s) and hit backspace to disable][/images/20160103/disable-screenshots-keybindings]
+![Select the line(s) and hit backspace to disable][/images/20160103/disable-screenshots-keybindings.png]
