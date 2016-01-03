@@ -8,7 +8,9 @@ First of all my best wishes to all of you!
 
 Today I needed to create a small how to document for someone, explaining how to update the core and modules of their Drupal site. This needed to be a fool-proof document so naturally a lot of screenshots were required.
 
-So I created an empty writer file in my Libre Office and launched my FileZilla client (which by the way is [available](https://packages.qa.debian.org/f/filezilla/news/20151222T163906Z.html) again via the Debian testing repo's since 22/12/2015). After connecting to my ftp server I took my first screenshot. By default Gnome is able to make [screenshots](https://wiki.debian.org/ScreenShots) and copy them to your clipboard or save them in a folder. So now this required me to launch Gimp in order to crop the image and add the neccessary arrows etc. hmm... bummer, this would be very time consuming for somthing very trivial...
+So I created an empty writer file in my Libre Office and launched my FileZilla client (which by the way is [available](https://packages.qa.debian.org/f/filezilla/news/20151222T163906Z.html) again via the Debian testing repo's since 22/12/2015). 
+After connecting to my ftp server I took my first screenshot. By default Gnome is able to make [screenshots](https://wiki.debian.org/ScreenShots) and copy them to your clipboard or save them in a folder. So now this required me to launch Gimp in order to crop the image and add the neccessary arrows etc. 
+hmm... bummer, this would be very time consuming for something very trivial...
 
 At work (on my Windows 7 machine) I got used to the built in [snipping tool](https://en.wikipedia.org/wiki/Snipping_Tool) provided my Microsoft. The tool lets you quickly select an area to capture, edit the captured area and copy it to clipboard or save it somewhere. So you can image I didn't want to continue before upgrading my machine's default screenshot tool to something more user friendly.
 
