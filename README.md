@@ -6,8 +6,9 @@ Pull requests will be accepted for any typos or editing and your contribution wi
 
 Categories used on the blog:
 - Personal
-- Cisco
+- Networking
 - Linux
+- Windows
 
 ## Reference
 - [Markdown Cheatsheet](http://www.jekyllnow.com/Markdown-Style-Guide/)
