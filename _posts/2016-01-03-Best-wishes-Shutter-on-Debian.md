@@ -23,7 +23,7 @@ sudo apt-get install shutter
 ```
 
 Next I launched shutter and, once it was done loading it's (perl) modules, opened the preferences to check out it's capabilities (alt+p). The only thing I modified for now was the **Save** settings so my screenshots aren't automatically saved.
-![Shutter preferences][{{ site.baseurl }}/images/20160103/shutter-preferences.png]
+![Shutter preferences]({{ site.baseurl }}/images/20160103/shutter-preferences.png "Shutter Preferences")
 
 While scrolling through the preferences I noticed that shutter has some other cool features! 
 For example you can make it upload you screencaptures to things like an FTP server, Dropbox, etc. It also supports plugins, by default it comes shipped with some effect plugins like a sepia- and barrel distortion filter. 
@@ -50,7 +50,7 @@ I added two links for now:
 Than I wondered if there was a way to disable the other default screenshot keybindings in Gnome. And guess what... there is! don't you just love Linux :)
 
 Open the *system settings* and go to keyboard
-![Select keyboard from system settings menu][{{ site.baseurl }}/images/20160103/keyboard-system-settings.png]
+![Select keyboard from system settings menu]({{ site.baseurl }}/images/20160103/keyboard-system-settings.png "Select keyboard from system settings menu")
 
 Under the *Shortcuts* tab select the *Screenshots* submenu. Once there selec the line(s) and hit backspace to disable these keybindings
-![Select the line(s) and hit backspace to disable][{{ site.baseurl }}/images/20160103/disable-screenshots-keybindings.png]
+![Select the line(s) and hit backspace to disable]({{ site.baseurl }}/images/20160103/disable-screenshots-keybindings.png "Select the line(s) and hit backspace to disable")
