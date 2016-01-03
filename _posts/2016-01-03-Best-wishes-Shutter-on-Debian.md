@@ -30,6 +30,7 @@ While scrolling through the preferences I noticed that shutter has some other co
 For example you can make it upload you screencaptures to things like an FTP server, Dropbox, etc. It also supports plugins, by default it comes shipped with some effect plugins like a sepia- and barrel distortion filter. 
 
 Anyways, enough wandering off for now!
+
 I re-opened my FileZilla client and took my screenshots again using shutter and opened it with the built-in editing tool and my god... Shutter comes with a very nice built-in editor. It includes the standard things you would expect to see like a highlighter, line drawer, rectangles, etc. But by default it also includes an arrow drawing tool and a tool to pixelize areas of the screenshot to hide private data etc. Very sweet added value right there!
 
 Once my document was finished I figured I'd better replace the default Gnome screenshot tool by shutter completely. I think the developpers of shutter figured this would be something people would naturally be wanting to do since they created an article on [how to do this](http://shutter-project.org/faq-help/set-shutter-as-the-default-screenshot-tool/#gnome) in their FAQ section.
