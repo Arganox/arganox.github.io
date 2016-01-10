@@ -2,6 +2,10 @@
 layout: post
 published: true
 title: Project pfSense - Accuired Watchguard Firebox x750e
+
+tags:
+- pfSense
+- firebox
 ---
 
 Christmas came very early this year!

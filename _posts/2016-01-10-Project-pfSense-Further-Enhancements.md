@@ -2,6 +2,10 @@
 layout: post
 published: false
 title: Project pfSense - x750e Further Enhancements
+
+tags:
+- pfSense
+- firebox
 ---
 
 This post relates directly to the (somewhat outdated) [X-Core-e > Further Enhancements](https://doc.pfsense.org/index.php/PfSense_on_Watchguard_Firebox#Further_Enhancements_3) part of the pfSense Watchguard Firebox Wiki.
