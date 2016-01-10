@@ -73,6 +73,8 @@ ssh admin@<IP_Of_pfSense_Box>
 - Fetch the kernel modules to **/boot/modules/**
 ```
 fetch -o /boot/modules/if_sk.ko  http://arganox.github.io/files/firebox/NIC/if_sk.ko
+
+# Not needed for X550e (as they do not have the msk interfaces)
 fetch -o /boot/modules/if_msk.ko http://arganox.github.io/files/firebox/NIC/if_msk.ko
 ```
 
@@ -89,6 +91,7 @@ chmod 555 if_*
 ```
 
 - To make the kernel modules load on boot add following lines to **/boot/loader.conf.local**
+	- **NOTE:** If you're using windows use [Notepad++](http://notepad-plus-plus.org/) cause notepad's CR/LF might brake things!
 ```
 if_sk_load="yes"
 if_msk_load="yes"
