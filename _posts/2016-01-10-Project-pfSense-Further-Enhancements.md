@@ -19,9 +19,6 @@ I'll be updating this post as I go, so stay tuned!
 31/01/2015: Received new CPU, documented installation
 ```
 
-{:toc}
-
-
 ## LCD enhancements
 
 **TODO**
