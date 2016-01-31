@@ -72,6 +72,7 @@ First we configure the timecounter to use the i8254 device.
 
 - In order to do so 'on-the-fly' you can run the following command in a shell prompt on your firebox:
 
+-
 ```
 sysctl kern.timecounter.hardware=i8254
 ```
@@ -84,15 +85,18 @@ I did add this setting to the system tunables:
 - Save and Apply config
 
 Next we enable PowerD
+
 - Navigate to System > Advanced > Miscellaneous
 - Enable PowerD
 - Save config
 
 All that left is to force our firebox to use EST instead of ACPI or P4TCC. Only EST provides measurable power savings.
+
 - Connect to your firebox: 
 	- `ssh admin@<IP_Of_pfSense_Box>`
 
 - Remount the filesystem as read-write
+
 ```
 /etc/rc.conf_mount_rw
 ```
@@ -101,6 +105,7 @@ All that left is to force our firebox to use EST instead of ACPI or P4TCC. Only 
 	- `vi /boot/loader.conf.local`
 
 - Add following lines at the bottom:
+
 ```
 hint.p4tcc.0.disabled=1
 hint.acpi_throttle.0.disabled=1
@@ -108,6 +113,7 @@ est_load="YES"
 ```
 
 - Remount the filesystem as read-only
+
 ```
 /etc/rc.conf_mount_ro
 ```
