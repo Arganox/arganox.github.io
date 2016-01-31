@@ -43,8 +43,6 @@ NOTE: The DIMMs only support up to 1GB / DIMM so this setup is far from ideal!
 
 ## CPU
 
-**TODO** write-up once received
-
 ### Installing the hardware
 
 Today I received my new CPU so let's get cracking!
@@ -71,12 +69,15 @@ Next step is to take advantage of the Intel Enhanched SpeedStep in order to redu
 The process to do so is described on the pfSense Wiki as well as on the [forum](https://forum.pfsense.org/index.php?topic=20095.msg161139#msg161139) but since your here I'll explain it :)
 
 First we configure the timecounter to use the i8254 device. 
+
 - In order to do so 'on-the-fly' you can run the following command in a shell prompt on your firebox:
+
 ```
 sysctl kern.timecounter.hardware=i8254
 ```
 
-I did add the setting to the system tunables:
+I did add this setting to the system tunables:
+
 - Navigate to System > Advanced > System Tunables
 - Add the config from the command above
 - **TODO** Add screenshot of settings to add
@@ -142,6 +143,7 @@ ssh admin@<IP_Of_pfSense_Box>
 ```
 
 - Fetch the kernel modules to **/boot/modules/**
+
 ```
 fetch -o /boot/modules/if_sk.ko  http://arganox.github.io/files/firebox/NIC/if_sk.ko
 
