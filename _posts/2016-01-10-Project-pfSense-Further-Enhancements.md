@@ -145,11 +145,13 @@ The steps to update the drivers on the wiki are still valid though the links to 
 So in order to fix the NIC LEDs behaviour:
 
 - Connect to you Firebox using ssh
+
 ```
 ssh admin@<IP_Of_pfSense_Box> 
 ```
 
 - Remount the filesystem as read-write
+
 ```
 /etc/rc.conf_mount_rw
 ```
@@ -164,36 +166,44 @@ fetch -o /boot/modules/if_msk.ko http://arganox.github.io/files/firebox/NIC/if_m
 ```
 
 - Check the MD5 of the files
+
 **TODO** Perform command on firebox and update output below
+
 ```
 42ddd204adc647e5c35c4107b52d11bf  if_msk.ko
 f7251a7d42cedb2f19723e39b9617935  if_sk.ko
 ```
 
 - Correct the permissions on these files
+
 ```
 chmod 555 if_*
 ```
 
 - To make the kernel modules load on boot add following lines to **/boot/loader.conf.local**
 	- **NOTE:** If you're using windows use [Notepad++](http://notepad-plus-plus.org/) cause notepad's CR/LF might brake things!
+
 ```
 if_sk_load="yes"
 if_msk_load="yes"
 ```
 
 - Remount the filesystem as read-only
+
 ```
 /etc/rc.conf_mount_ro
 ```
 
 - Reboot the firebox
+
 ```
 reboot
 ```
 
 - To check if the modules are loaded correctly: Look at the LEDs... duh! or if you're to lazy to turn your head (Can't blame you! :)) you can check the syslog:
+
 **TODO** Add print of syslog output
+
 ```
 Syslogoutput
 ```
