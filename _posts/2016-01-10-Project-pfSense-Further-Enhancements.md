@@ -42,7 +42,7 @@ The board does support up to 2GB DDR2 RAM as explained on the Wiki. Personally I
 
 So I opened the box and poped out the original DIMM which was an 512MB DDR2-533 Transcend DIMM.
 
-**TODO** Add photo
+![RAM_Modules]({{ site.baseurl }}/images/20160110/RAM_Modules.png "Top: Original 512MB DIMM | Bottom: New 2GB DIMM")
 
 After replacing the original DIMM with one of my 2GB ones I booted my firebox. Once booted I launched the web interface to check my 2G.... 900MB of RAM?!?
 
@@ -84,18 +84,18 @@ The process to do so is described on the pfSense Wiki as well as on the [forum](
 
 First we configure the timecounter to use the i8254 device. 
 
-- In order to do so 'on-the-fly' you can run the following command in a shell prompt on your firebox:
+- In order to do so 'on-the-fly' you can run the following command in a shell prompt on your firebox
 
 ```
 sysctl kern.timecounter.hardware=i8254
 ```
 
-I did add this setting to the system tunables:
+- Then add these settings to the system tunables
 
-- Navigate to System > Advanced > System Tunables
-- Add the config from the command above
-- **TODO** Add screenshot of settings to add
-- Save and Apply config
+	- Navigate to System > Advanced > System Tunables
+	- Add the config from the command above
+	- **TODO** Add screenshot of settings to add
+	- Save and Apply config
 
 Next we enable PowerD
 
