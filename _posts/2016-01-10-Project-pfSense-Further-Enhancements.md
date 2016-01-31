@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Project pfSense - x750e Further Enhancements
 
 tags:
@@ -36,13 +36,84 @@ After replacing the original DIMM with one of my 2GB ones I booted my firebox. O
 
 **TODO** Add screenshot
 
-After some more reading I figured out the board _does_ support up to 2GB but is limited to 1GB per slot. So I added my second 2GB DIMM, booted the system and sure enough.. 2007MB of memory was recognized!
+After some more reading I figured out the board _does_ support up to 2GB but is limited to 1GB per DIMM. So I added my second 2GB DIMM, booted the system and sure enough.. 2007MB of memory was recognized!
+NOTE: The DIMMs only support up to 1GB / DIMM so this setup is far from ideal!
 
 **TODO** Add photo + Screenshot
 
 ## CPU
 
 **TODO** write-up once received
+
+### Installing the hardware
+
+Today I received my new CPU so let's get cracking!
+
+As you can read on the Wiki the board supports both the 130nm "Banias" and the 90nm "Dothan" familly. So I went ahead and ordered a "Dothan" Pentium M755 (SL7EM, 2GHz, 2MB L2 Cache) of of eBay for €10. Although it has the same FSB speed it supports Intel EnhanchedSpeedstep (more on this later), has 4x more L2 Cache and will increase the raw GHz with 53%!
+
+With the case open I removed the over engineered heatsink. Underneath the heatsink we find the default Intel Celeron M320 (SL6N7, 1.3GHz, 512K L2 Cache). This CPU is part of the 130nm "Banias" family. 
+
+**TODO** Add picture of old CPU
+
+Replacing the CPU itself is straight forward: you unlock the old one, take it out, put in the new one, lock it, clean heatsink, apply cooling paste, re-mount the heatsink, Done! 
+
+**TODO** Add picture of new CPU
+
+Once the new CPU is in place you need to adjust both DIP switches on the motherboard to adjust the voltage and the FSB settings to match your new chip.
+
+**TODO** Add pitures of DIP switches 
+
+With all of that out of the way, time to put the new CPU to work! Remember, the firebox will beep on successfull POST. So if you boot it and it beeps.. great success! CPU recognized!
+
+### Make it green(er)
+
+Next step is to take advantage of the Intel Enhanched SpeedStep in order to reduce the power consumption.
+The process to do so is described on the pfSense Wiki as well as on the [forum](https://forum.pfsense.org/index.php?topic=20095.msg161139#msg161139) but since your here I'll explain it :)
+
+First we configure the timecounter to use the i8254 device. 
+- In order to do so 'on-the-fly' you can run the following command in a shell prompt on your firebox:
+```
+sysctl kern.timecounter.hardware=i8254
+```
+
+I did add the setting to the system tunables:
+- Navigate to System > Advanced > System Tunables
+- Add the config from the command above
+- **TODO** Add screenshot of settings to add
+- Save and Apply config
+
+Next we enable PowerD
+- Navigate to System > Advanced > Miscellaneous
+- Enable PowerD
+- Save config
+
+All that left is to force our firebox to use EST instead of ACPI or P4TCC. Only EST provides measurable power savings.
+- Connect to your firebox: 
+	- `ssh admin@<IP_Of_pfSense_Box>`
+
+- Remount the filesystem as read-write
+```
+/etc/rc.conf_mount_rw
+```
+
+- Edit the /boot/loader.conf.local file
+	- `vi /boot/loader.conf.local`
+
+- Add following lines at the bottom:
+```
+hint.p4tcc.0.disabled=1
+hint.acpi_throttle.0.disabled=1
+est_load="YES"
+```
+
+- Remount the filesystem as read-only
+```
+/etc/rc.conf_mount_ro
+```
+
+Now reboot your system and see SpeedStep in action on the dashboard!
+**TODO** Add screenshot of speedstep
+
 
 ## PSU
 
@@ -95,6 +166,11 @@ chmod 555 if_*
 ```
 if_sk_load="yes"
 if_msk_load="yes"
+```
+
+- Remount the filesystem as read-only
+```
+/etc/rc.conf_mount_ro
 ```
 
 - Reboot the firebox
