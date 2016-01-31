@@ -63,7 +63,7 @@ Once the new CPU is in place you need to adjust both DIP switches on the motherb
 
 With all of that out of the way, time to put the new CPU to work! Remember, the firebox will beep on successfull POST. So if you boot it and it beeps.. great success! CPU recognized!
 
-### Make it green(er)
+### Making it green(er)
 
 Next step is to take advantage of the Intel Enhanched SpeedStep in order to reduce the power consumption.
 The process to do so is described on the pfSense Wiki as well as on the [forum](https://forum.pfsense.org/index.php?topic=20095.msg161139#msg161139) but since your here I'll explain it :)
@@ -72,7 +72,6 @@ First we configure the timecounter to use the i8254 device.
 
 - In order to do so 'on-the-fly' you can run the following command in a shell prompt on your firebox:
 
--
 ```
 sysctl kern.timecounter.hardware=i8254
 ```
@@ -93,16 +92,18 @@ Next we enable PowerD
 All that left is to force our firebox to use EST instead of ACPI or P4TCC. Only EST provides measurable power savings.
 
 - Connect to your firebox: 
-	- `ssh admin@<IP_Of_pfSense_Box>`
 
-- Remount the filesystem as read-write
+``` ssh admin@<IP_Of_pfSense_Box> ```
+
+- Remount the filesystem as read-write:
 
 ```
 /etc/rc.conf_mount_rw
 ```
 
-- Edit the /boot/loader.conf.local file
-	- `vi /boot/loader.conf.local`
+- Edit the /boot/loader.conf.local file:
+
+```vi /boot/loader.conf.local```
 
 - Add following lines at the bottom:
 
@@ -119,6 +120,7 @@ est_load="YES"
 ```
 
 Now reboot your system and see SpeedStep in action on the dashboard!
+
 **TODO** Add screenshot of speedstep
 
 
