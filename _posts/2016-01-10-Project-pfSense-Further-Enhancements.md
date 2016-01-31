@@ -93,7 +93,9 @@ All that left is to force our firebox to use EST instead of ACPI or P4TCC. Only 
 
 - Connect to your firebox: 
 
-``` ssh admin@<IP_Of_pfSense_Box> ```
+``` 
+ssh admin@<IP_Of_pfSense_Box> 
+```
 
 - Remount the filesystem as read-write:
 
@@ -103,7 +105,9 @@ All that left is to force our firebox to use EST instead of ACPI or P4TCC. Only 
 
 - Edit the /boot/loader.conf.local file:
 
-```vi /boot/loader.conf.local```
+```
+vi /boot/loader.conf.local
+```
 
 - Add following lines at the bottom:
 
