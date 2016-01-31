@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Project pfSense - x750e Further Enhancements
 
 tags:
@@ -9,6 +9,16 @@ tags:
 ---
 
 This post relates directly to the (somewhat outdated) [X-Core-e > Further Enhancements](https://doc.pfsense.org/index.php/PfSense_on_Watchguard_Firebox#Further_Enhancements_3) part of the pfSense Watchguard Firebox Wiki.
+
+## Action log
+
+I'll be updating this post as I go, so stay tuned!
+
+```
+10/01/2016: Initial creation of the document with draft layout
+31/01/2015: Received new CPU, documented installation
+```
+
 
 ## LCD enhancements
 
@@ -37,7 +47,7 @@ After replacing the original DIMM with one of my 2GB ones I booted my firebox. O
 **TODO** Add screenshot
 
 After some more reading I figured out the board _does_ support up to 2GB but is limited to 1GB per DIMM. So I added my second 2GB DIMM, booted the system and sure enough.. 2007MB of memory was recognized!
-NOTE: The DIMMs only support up to 1GB / DIMM so this setup is far from ideal!
+_NOTE_: The DIMMs only support up to 1GB / DIMM so this setup is far from ideal!
 
 **TODO** Add photo + Screenshot
 
@@ -132,7 +142,11 @@ Now reboot your system and see SpeedStep in action on the dashboard!
 
 ## PSU
 
-**TODO** investigate PicoPSU, order, document
+**TODO** investigate PicoPSU:
+
+- Order 
+- Install
+- Document
 
 ## NIC LEDs
 
