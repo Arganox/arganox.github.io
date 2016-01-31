@@ -56,7 +56,7 @@ _NOTE_: The DIMMs only support up to 1GB / DIMM so this setup is far from ideal!
 
 Today I received my new CPU so let's get cracking!
 
-As you can read on the Wiki the board supports both the 130nm "Banias" and the 90nm "Dothan" familly. So I went ahead and ordered a "Dothan" Pentium M755 (SL7EM, 2GHz, 2MB L2 Cache) of of eBay for €10. Although it has the same FSB speed it supports Intel EnhanchedSpeedstep (more on this later), has 4x more L2 Cache and will increase the raw GHz with 53%!
+As you can read on the Wiki the board supports both the 130nm "Banias" and the 90nm "Dothan" familly. So I went ahead and ordered a "Dothan" Pentium M755 (SL7EM, 2GHz, 2MB L2 Cache) of of eBay for €10. Although it has the same FSB speed it supports Intel EnhanchedSpeedstep (more on this later), has 4x more L2 Cache and will increase the raw GHz with 53.846153846%!
 
 With the case open I removed the over engineered heatsink. Underneath the heatsink we find the default Intel Celeron M320 (SL6N7, 1.3GHz, 512K L2 Cache). This CPU is part of the 130nm "Banias" family. 
 
