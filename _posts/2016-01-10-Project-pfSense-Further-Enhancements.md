@@ -51,15 +51,17 @@ As you can read on the Wiki the board supports both the 130nm "Banias" and the 9
 
 With the case open I removed the over engineered heatsink. Underneath the heatsink we find the default Intel Celeron M320 (SL6N7, 1.3GHz, 512K L2 Cache). This CPU is part of the 130nm "Banias" family. 
 
-**TODO** Add picture of old CPU
+![Stock_CPU]({{ site.baseurl }}/images/20160110/SL6N7.png "The default SL6N7 CPU")
 
 Replacing the CPU itself is straight forward: you unlock the old one, take it out, put in the new one, lock it, clean heatsink, apply cooling paste, re-mount the heatsink, Done! 
 
-**TODO** Add picture of new CPU
+![New_CPU]({{ site.baseurl }}/images/20160110/SL7EM.png "New CPU, SL7EM")
 
 Once the new CPU is in place you need to adjust both DIP switches on the motherboard to adjust the voltage and the FSB settings to match your new chip.
 
-**TODO** Add pitures of DIP switches 
+![DIP_Switch_1]({{ site.baseurl }}/images/20160110/DIP_Switch_1.png "First pair of DIP switches")
+![DIP_Switch_2]({{ site.baseurl }}/images/20160110/DIP_Switch_2.png "Second pair of DIP switches")
+
 
 With all of that out of the way, time to put the new CPU to work! Remember, the firebox will beep on successfull POST. So if you boot it and it beeps.. great success! CPU recognized!
 
