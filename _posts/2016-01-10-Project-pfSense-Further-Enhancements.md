@@ -143,20 +143,21 @@ Now reboot your system and see SpeedStep in action on the dashboard!
 
 ## PSU
 
-At the moment the main source of heat in the firebox is the powersuply. More heat means more cooling, more cooling means more energy usage which in turn means more power conumption.
-So it's time the swap out the old power supply for something smaller, more performant and way cooler (in both ways :p).
+At the moment the main source of heat in the firebox is the powersupply. More heat means more cooling, more cooling means more energy usage which in turn means more power consumption.
+So it's time to swap out the old power supply for something smaller, more performant and way cooler (both literally and nerdly :)).
 
-I ordered a PicoPSU 120W and a powerbrick of 80W. I picked this up from the Nethelands from [Afuture.nl](https://www.afuture.nl/productview.php?productID=2438419) which had the best price at the time of writing. Those of you living in the US probably want to check out [mini-box.com](http://www.mini-box.com/s.nl/it.A/id.417/.f).
+I ordered a PicoPSU 120W and powerbrick kit. I picked this up in the Nethelands from [Afuture.nl](https://www.afuture.nl/productview.php?productID=2438419) which had the best price at the time of writing. Those of you living in the US probably want to check out [mini-box.com](http://www.mini-box.com/s.nl/it.A/id.417/.f).
 
 **TODO** PicoPSU:
 
-- Order 
+- Order -- **Done** 
 	- _PicoPSU 120W has been ordered._ Waiting for delivery to test it out.
 - Install
-	- Check power consumption difference
-- Print 3D plate to close cover (Credits go to _PantsManUK_ on the pfSense Forums):
+- Print and upload 3D plate to close cover (Credits go to _PantsManUK_ on the pfSense Forums):
 - ![Power_Connector_Plate]({{ site.baseurl }}/images/20160110/Power_Connector_Plate.png "3D design power connector plate")
 - Document
+	- Installation
+	- Power consumption difference
 
 ## NIC LEDs
 
