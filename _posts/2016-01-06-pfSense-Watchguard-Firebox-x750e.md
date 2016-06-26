@@ -17,7 +17,7 @@ I've been thinking about running a firewall at home for quite some time now. So 
 
 Look at her... who wouldn't want to have a nice and shiny 1U red firewall sitting in his/her rack?
 
-Now let's find out what this beauty can do! There is a very nice [community](http://forum.pfsense.org/index.php/topic,20095.0.html) and [wiki](https://doc.pfsense.org/index.php/PfSense_on_Watchguard_Firebox#X-Core-e) over at the pfSense site explaining how to run pfSense on all sorts of Watchguard hardware. So I'll guess I'll have a lot of reading to do for now.
+Now let's find out what this beauty can do! There is a very nice [community](http://forum.pfsense.org/index.php/topic,20095.0.html) and [wiki](https://doc.pfsense.org/index.php/PfSense_on_Watchguard_Firebox#X-Core-e) over at the pfSense site explaining how to run pfSense on all sorts of Watchguard hardware. So I guess I'll have a lot of reading to do for now.
 
 List of next steps I would like to address:
 
