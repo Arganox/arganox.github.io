@@ -18,6 +18,7 @@ I'll be updating this post as I go, so stay tuned!
 10/01/2016: Initial creation of the document with draft layout
 31/01/2016: Received new CPU, documented installation
 26/06/2016: Ordered PicoPSU, added some small updates and pictures
+11/09/2016: Ordered IDE 44pin to SATA connector pieces. Updated WGXepc installation
 ```
 
 ## LCD enhancements
@@ -30,9 +31,53 @@ Write LCD-DEV package + cmdshell
 
 **TODO**
 
-Explain installation of WGXepc + config using cmdshell
+Explain config using cmdshell
 
-Link to files (+copy files on git)
+
+
+The WGXepc script can be used to control the fan speed, Arm/Disarm LED, LCD backlight. It can also read the CPU temperature.
+So lets get installing!
+
+- Remount the filesystem as read-write:
+
+```
+/etc/rc.conf_mount_rw
+```
+
+- Download the script to the /conf folder:
+
+```
+fetch -o /conf http://arganox.github.io/files/firebox/WGXepc/WGXepc
+```
+
+- Set permission so the script can be executed:
+
+```
+chmod 0755 /conf/WGXepc
+```
+
+- Test the program
+```
+[2.3.2-RELEASE][admin@pfSense.localdomain]/conf: ./WGXepc 
+Found Firebox X-E
+WGXepc Version 1.1 27/11/2014 stephenw10
+WGXepc can accept two arguments:
+ -f (fan) will return the current and minimum fan speed or if followed
+    by a number in hex, 00-FF, will set it.
+ -l (led) will set the arm/disarm led state to the second argument:
+    red, green, red_flash, green_flash, red_flash_fast, green_flash_fast, off
+ -b (backlight) will set the lcd backlight to the second argument:
+    on or off. Do not use with LCD driver.
+ -t (temperature) shows the current CPU temperature reported by the
+    SuperIO chip. X-e box only.
+Not all functions are supported by all models
+```
+
+- Remount the filesystem as read-only:
+
+```
+/etc/rc.conf_mount_ro
+```
 
 ## RAM
 

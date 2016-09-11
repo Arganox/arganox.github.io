@@ -14,7 +14,7 @@ While all the hardware is discovered correctly during install I received a MEMOR
 
 So here is how to circumvent this error:
 
-During install, when you receive the MOMORY_SIZE ERROR press ALT+F1 to access the shell.
+During install, when you receive the MEMORY_SIZE ERROR press ALT+F1 to access the shell.
 
 Next we log in as root with a blank password.
 Once we're logged in as root perform the following commands:
