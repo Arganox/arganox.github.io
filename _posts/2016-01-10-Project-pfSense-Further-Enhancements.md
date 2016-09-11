@@ -57,6 +57,7 @@ chmod 0755 /conf/WGXepc
 ```
 
 - Test the program
+
 ```
 [2.3.2-RELEASE][admin@pfSense.localdomain]/conf: ./WGXepc 
 Found Firebox X-E
