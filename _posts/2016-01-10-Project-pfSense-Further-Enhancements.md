@@ -28,12 +28,7 @@ I'll be updating this post as I go, so stay tuned!
 Write LCD-DEV package + cmdshell
 
 ## WGXepc (Arm/Disarm LED + Fan Speed)
-
-**TODO**
-
-Explain config using cmdshell
-
-
+### Installing the base script
 
 The WGXepc script can be used to control the fan speed, Arm/Disarm LED, LCD backlight. It can also read the CPU temperature.
 So lets get installing!
@@ -80,7 +75,9 @@ Not all functions are supported by all models
 /etc/rc.conf_mount_ro
 ```
 
-In order to have these WGXcpe commands executed on boot you can use the shellcmd package.
+### Automatic execution on boot
+
+In order to have these WGXepc commands executed on boot you can use the shellcmd package.
 
 - If you haven't already, install the shellcmd package.
 This can be done by navigating to System > Packages and selecting the Available Packages tab.
@@ -89,13 +86,13 @@ This can be done by navigating to System > Packages and selecting the Available 
 
 - Next search for the shellcmd package and install it
 
-- Once installed you'll be able to find the new package under Services > Shellcmd. Navigate here in order to configure the WGXcpe command to execute on boot.
+- Once installed you'll be able to find the new package under Services > Shellcmd. Navigate here in order to configure the WGXepc command to execute on boot.
 
 ![Shellcmd]({{ site.baseurl }}/images/20160110/shellcmd_menu.png "Shellcmd service in the Web GUI.")
 
 - Add all the command you want to be executed on boot. eg: On boot, set the fan speed to 10:
 
-![Shellcmd_fanspeed]({{ site.baseurl }}/images/20160110/shellcmd_WGXcpe.png "Shellcmd to set the fan speed to 10 on boot.")
+![Shellcmd_fanspeed]({{ site.baseurl }}/images/20160110/shellcmd_WGXepc.png "Shellcmd to set the fan speed to 10 on boot.")
 
 ## RAM
 
