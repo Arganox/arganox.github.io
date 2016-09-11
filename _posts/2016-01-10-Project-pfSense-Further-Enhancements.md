@@ -80,6 +80,23 @@ Not all functions are supported by all models
 /etc/rc.conf_mount_ro
 ```
 
+In order to have these WGXcpe commands executed on boot you can use the shellcmd package.
+
+- If you haven't already, install the shellcmd package.
+This can be done by navigating to System > Packages and selecting the Available Packages tab.
+
+![PackageManager]({{ site.baseurl }}/images/20160110/Packages.png "Package manager in the Web GUI.")
+
+- Next search for the shellcmd package and install it
+
+- Once installed you'll be able to find the new package under Services > Shellcmd. Navigate here in order to configure the WGXcpe command to execute on boot.
+
+![Shellcmd]({{ site.baseurl }}/images/20160110/shellcmd_menu.png "Shellcmd service in the Web GUI.")
+
+- Add all the command you want to be executed on boot. eg: On boot, set the fan speed to 10:
+
+![Shellcmd_fanspeed]({{ site.baseurl }}/images/20160110/shellcmd_WGXcpe.png "Shellcmd to set the fan speed to 10 on boot.")
+
 ## RAM
 
 The board does support up to 2GB DDR2 RAM as explained on the Wiki. Personally I had some 2GB DDR2-533 Kingston Value DIMMs laying around from an old desktop. For those interested in the details: KVR533D2N4K2/2G. 
