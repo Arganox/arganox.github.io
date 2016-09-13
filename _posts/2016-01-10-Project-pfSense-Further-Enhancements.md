@@ -41,7 +41,7 @@ Lets go!
 
 - Once these packages are installed, navigate to Services -> LCDproc. Select/change the following: ‘Enable LCDproc at startup’ yes | Com port – Parallel Port 1 | Display Size – 2×20 | Driver – Watchguard Firebox with SDEC.
 
-- By doing this the package will generate the lcdd.conf file which we will be copying to /conf. By doing this via the web GUI there is no need to remount the filesystem in RW. Go to Diagnostics: Command Prompt and run:  
+- By doing this the package will generate the lcdd.conf file which we will be copying to /conf. By doing this via the web GUI there is no need to remount the filesystem in RW. Go to Diagnostics: Command Prompt and run:
 
 ```
 cp /usr/local/etc/LCDd.conf /conf
@@ -49,7 +49,7 @@ cp /usr/local/etc/LCDd.conf /conf
 
 - Now go back to Services -> LCDproc, uncheck 'Enable LCDproc at startup' and set Com Port to 'none'. You must set the com port as none, that's what the LCDproc-dev config script looks for before it removes the RC start-stop scripts.
 
-- To start the LCDproc server and client with every boot navigate to Services -> shellcmd and add the following commands:  
+- To start the LCDproc server and client with every boot navigate to Services -> shellcmd and add the following commands:
 
 ```
 #Start the LCDproc driver with the confi we created
