@@ -14,16 +14,16 @@ This post relates directly to the (somewhat outdated) [X-Core-e > Further Enhanc
 
 I'll be updating this post as I go, so stay tuned!
 
->
+```
 10/01/2016: Initial creation of the document with draft layout
 31/01/2016: Received new CPU, documented installation
 26/06/2016: Ordered PicoPSU
-		Added some small updates and pictures
+            Added some small updates and pictures
 11/09/2016: Ordered IDE 44pin to SATA connector pieces
 	    Updated WGXepc installation instructions
 13/09/2016: Installed PicoPSU, documented installation
 	    Added LCD-dev package instructions
-
+```
 
 ## LCD enhancements
 
