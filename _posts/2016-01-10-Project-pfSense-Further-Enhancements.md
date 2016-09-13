@@ -17,16 +17,44 @@ I'll be updating this post as I go, so stay tuned!
 ```
 10/01/2016: Initial creation of the document with draft layout
 31/01/2016: Received new CPU, documented installation
-26/06/2016: Ordered PicoPSU, added some small updates and pictures
-11/09/2016: Ordered IDE 44pin to SATA connector pieces. Updated WGXepc installation
+26/06/2016: Ordered PicoPSU
+	    Added some small updates and pictures
+11/09/2016: Ordered IDE 44pin to SATA connector pieces
+	    Updated WGXepc installation instructions
 13/09/2016: Installed PicoPSU, documented installation
+	    Added LCD-dev package instructions
 ```
 
 ## LCD enhancements
 
-**TODO**
+**NOTE** As of version 2.3 of pfSense LCDproc-DEV package seems to be removed but should be [installable manually](https://forum.pfsense.org/index.php?topic=44034.msg645684#msg645684).
 
-Write LCD-DEV package + cmdshell
+Aaa pfSense running on your watchguard, looking nice! Flashing lights and an LCD which displays... absolutely nothing usefull. *sigh*
+Out of the box the LCD of the watchguard will be displaying **PFSense _<BIOS-VERSION>_ Booting OS...** We can use the LCD to display some live stats regarding our watchguard. This can be accomplished with the LCDproc-dev package which is [well described](https://forum.pfsense.org/index.php?topic=7920.msg344513#msg344513) in the forums by _stephenw10_. lets go!
+
+- First navigate to System -> Packages. From there click on the “Available Packages” tab. Then search and install “LCDproc-dev” and “Shellcmd“ (I'll be using this in the next part as well). Make sure you select the **dev** version of LCDproc as it includes working drivers for the watchguard LCD. Shellcmd will allow us to execute commands on boot. So here we'll be using it to start the LCDproc service once installed and configured.
+
+- Once these packages are installed, navigate to Services -> LCDproc. Select/change the following: ‘Enable LCDproc at startup’ yes | Com port – Parallel Port 1 | Display Size – 2×20 | Driver – Watchguard Firebox with SDEC.
+
+- By doing this the package will generate the lcdd.conf file which we will be copying to /conf. By doing this via the web GUI there is no need to remount the filesystem in RW. Go to Diagnostics: Command Prompt and run:
+
+```
+cp /usr/local/etc/LCDd.conf /conf
+``` 
+
+- Now go back to Services -> LCDproc, uncheck 'Enable LCDproc at startup' and set Com Port to 'none'. You must set the com port as none, that's what the LCDproc-dev config script looks for before it removes the RC start-stop scripts.
+
+- To start the LCDproc server and client with every boot navigate to Services -> shellcmd and add the following commands:
+
+```
+#Start the LCDproc driver with the confi we created
+/usr/bin/nice -20 /usr/local/sbin/LCDd -r 0 -c /conf/LCDd.conf > /dev/null &
+
+#Select the screens you would like to display
+/usr/bin/nice -20 /usr/local/bin/lcdproc C T U & 
+```
+
+- Reboot and look at the LCD to test the config
 
 ## WGXepc (Arm/Disarm LED + Fan Speed)
 ### Installing the base script
@@ -80,8 +108,8 @@ Not all functions are supported by all models
 
 In order to have these WGXepc commands executed on boot you can use the shellcmd package.
 
-- If you haven't already, install the shellcmd package.
-This can be done by navigating to System > Packages and selecting the Available Packages tab.
+- If you haven't already done so in the first part of this post, install the shellcmd package.
+This can be done by navigating to System > Packages from there click on the "Available Packages" tab.
 
 ![PackageManager]({{ site.baseurl }}/images/20160110/Packages.png "Package manager in the Web GUI.")
 
