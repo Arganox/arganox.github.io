@@ -14,7 +14,7 @@ This post relates directly to the (somewhat outdated) [X-Core-e > Further Enhanc
 
 I'll be updating this post as I go, so stay tuned!
 
-```
+>```
 10/01/2016: Initial creation of the document with draft layout
 31/01/2016: Received new CPU, documented installation
 26/06/2016: Ordered PicoPSU
