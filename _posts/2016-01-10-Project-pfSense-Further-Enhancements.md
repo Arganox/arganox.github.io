@@ -24,13 +24,15 @@ I'll be updating this post as I go, so stay tuned!
 13/09/2016: Installed PicoPSU, documented installation
             Added LCD-dev package instructions
 ```
+----
 
 ## LCD enhancements
 
 **NOTE** As of version 2.3 of pfSense LCDproc-DEV package seems to be removed but should be [installable manually](https://forum.pfsense.org/index.php?topic=44034.msg645684#msg645684).
 
 Aaa pfSense running on your watchguard, looking nice! Flashing lights and an LCD which displays... absolutely nothing usefull. *sigh*
-Out of the box the LCD of the watchguard will be displaying **PFSense _<BIOS-VERSION>_ Booting OS...** We can use the LCD to display some live stats regarding our watchguard. This can be accomplished with the LCDproc-dev package which is [well described](https://forum.pfsense.org/index.php?topic=7920.msg344513#msg344513) in the forums by _stephenw10_. lets go!
+Out of the box the LCD of the watchguard will be displaying **PFSense _<BIOS-VERSION>_ Booting OS...**  
+We can use the LCD to display some live stats regarding our watchguard. This can be accomplished with the LCDproc-dev package which is [well described](https://forum.pfsense.org/index.php?topic=7920.msg344513#msg344513) in the forums by _stephenw10_. lets go!
 
 - First navigate to System -> Packages. From there click on the “Available Packages” tab. Then search and install “LCDproc-dev” and “Shellcmd“ (I'll be using this in the next part as well). Make sure you select the **dev** version of LCDproc as it includes working drivers for the watchguard LCD. Shellcmd will allow us to execute commands on boot. So here we'll be using it to start the LCDproc service once installed and configured.
 
@@ -55,6 +57,8 @@ cp /usr/local/etc/LCDd.conf /conf
 ```
 
 - Reboot and look at the LCD to test the config
+
+----
 
 ## WGXepc (Arm/Disarm LED + Fan Speed)
 ### Installing the base script
@@ -123,6 +127,8 @@ This can be done by navigating to System > Packages from there click on the "Ava
 
 ![Shellcmd_fanspeed]({{ site.baseurl }}/images/20160110/shellcmd_WGXepc.png "Shellcmd to set the fan speed to 10 on boot.")
 
+----
+
 ## RAM
 
 The board does support up to 2GB DDR2 RAM as explained on the Wiki. Personally I had some 2GB DDR2-533 Kingston Value DIMMs laying around from an old desktop. For those interested in the details: KVR533D2N4K2/2G. 
@@ -139,6 +145,8 @@ After some more reading I figured out the board _does_ support up to 2GB but is 
 _NOTE_: The DIMMs only support up to 1GB / DIMM so this setup is far from ideal!
 
 ![RAM_Upgrade_OK]({{ site.baseurl }}/images/20160110/RAM_Upgrade_OK.png "With 2x2GB DIMMs 2GB is usable")
+
+----
 
 ## CPU
 
@@ -229,6 +237,7 @@ Now reboot your system and see SpeedStep in action on the dashboard!
 
 ![Speedstep]({{ site.baseurl }}/images/20160110/speedstep.gif "Animated gif of speedstep in action on the status dashboard")
 
+----
 
 ## PSU
 
@@ -247,6 +256,8 @@ I did de-solder to power switch and re-soldered it in between my PicoPSU and the
 
 And from the outside it look like this:
 ![PSU_outside]({{ site.baseurl }}/images/20160110/picoPSU_Result.png "PSU upgrade final result outside")
+
+----
 
 ## NIC LEDs
 
@@ -333,9 +344,10 @@ skc1: <Marvell Gigabit Ethernet (LED mod 2.2)> port 0xc400-0xc4ff mem 0xd0420000
 skc2: <Marvell Gigabit Ethernet (LED mod 2.2)> port 0xc800-0xc8ff mem 0xd0424000-0xd0427fff irq 18 at device 2.0 on pci5
 skc3: <Marvell Gigabit Ethernet (LED mod 2.2)> port 0xcc00-0xccff mem 0xd0428000-0xd042bfff irq 19 at device 3.0 on pci5
 ```
+----
 
 ## HDD Caddy & Extreme stuff
 
-I haven't had a go (nor the desire to do so at the moment) on either one of these so I guess if you want more info on these you'll have to source the forums.
+I haven't had a go (~~nor the desire to do so~~ at the moment) on either one of these so I guess if you want more info on these you'll have to source the forums.
 
 I hope this was usefull to anyone! Have fun with your enhanced Firebox.
