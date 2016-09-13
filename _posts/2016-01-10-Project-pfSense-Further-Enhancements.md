@@ -20,9 +20,9 @@ I'll be updating this post as I go, so stay tuned!
 26/06/2016: Ordered PicoPSU
             Added some small updates and pictures
 11/09/2016: Ordered IDE 44pin to SATA connector pieces
-	    Updated WGXepc installation instructions
+            Updated WGXepc installation instructions
 13/09/2016: Installed PicoPSU, documented installation
-	    Added LCD-dev package instructions
+            Added LCD-dev package instructions
 ```
 
 ## LCD enhancements
