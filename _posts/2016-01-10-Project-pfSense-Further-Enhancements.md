@@ -33,7 +33,7 @@ I'll be updating this post as I go, so stay tuned!
 Aaa pfSense running on your watchguard, looking nice!  
 Flashing lights and an LCD which displays... absolutely nothing usefull. **sigh...**
 
-Out of the box the LCD of the watchguard will be displaying **PFSense _<BIOS-VERSION>_ Booting OS...**  
+Out of the box the LCD of the watchguard will be displaying **PFSense _BIOS-VERSION_ Booting OS...**  
 We can use the LCD to display some live stats regarding our watchguard. This can be accomplished with the LCDproc-dev package which is [well described](https://forum.pfsense.org/index.php?topic=7920.msg344513#msg344513) in the forums by _stephenw10_.  
 Lets go!
 
