@@ -19,6 +19,7 @@ I'll be updating this post as I go, so stay tuned!
 31/01/2016: Received new CPU, documented installation
 26/06/2016: Ordered PicoPSU, added some small updates and pictures
 11/09/2016: Ordered IDE 44pin to SATA connector pieces. Updated WGXepc installation
+13/09/2016: Installed PicoPSU, documented installation
 ```
 
 ## LCD enhancements
@@ -206,18 +207,18 @@ Now reboot your system and see SpeedStep in action on the dashboard!
 At the moment the main source of heat in the firebox is the powersupply. More heat means more cooling, more cooling means more energy usage which in turn means more power consumption.
 So it's time to swap out the old power supply for something smaller, more performant and way cooler (both literally and nerdly :)).
 
-I ordered a PicoPSU 120W and powerbrick kit. I picked this up in the Nethelands from [Afuture.nl](https://www.afuture.nl/productview.php?productID=2438419) which had the best price at the time of writing. Those of you living in the US probably want to check out [mini-box.com](http://www.mini-box.com/s.nl/it.A/id.417/.f).
+I ordered a PicoPSU 120W and powerbrick kit. I picked this up in the Nethelands from [Afuture.nl](https://www.afuture.nl/productview.php?productID=2438419) which had the best price at the time of writing. Those of you living in the US probably want to check out [mini-box.com](http://www.mini-box.com/s.nl/it.A/id.417/.f). I bought an extra [P4 Male to Molex](https://www.afuture.nl/product/137001/delock-cable-p4-male-%3E-molex-4pin-male) connector since the PicoPSU didn't came with a P4 connector for the motherboard. I also bought one [P4 Male to P4 MAle](https://www.afuture.nl/product/151887/delock-power-cable-p4-malefemale) connector so I could re-use the power switch.
 
-**TODO** PicoPSU:
+After a quick test of the PicoPSU it was time to install this little PSU. This step requires no specific info just open the firebox, disconnect the old bulky PSU, unscrew it, take it out and toss it away! Next you connect the PicoPSU and you're all set. You can now boot your firebox using your new PicoPSU which will lower it's power usage to somwhere around 25-30W. Overal I messured a saving of approximately 10W both during boot and operation.
 
-- Order -- **Done** 
-	- _PicoPSU 120W has been ordered._ Waiting for delivery to test it out.
-- Install
-- Print and upload 3D plate to close cover (Credits go to _PantsManUK_ on the pfSense Forums):
-- ![Power_Connector_Plate]({{ site.baseurl }}/images/20160110/Power_Connector_Plate.png "3D design power connector plate")
-- Document
-	- Installation
-	- Power consumption difference
+I figured while I'm at it I might as well make this slik looking both inside and out. Big thanks to _PantsManUK_ on the forums. He made a 3D design for a cover plate that fits the firebox perfectly! So I printed [his design]({{ site.baseurl }}/files/firebox/PowerConnectorPlate/firebox-power-connector-blanking-plate.zip) which I uploaded here for reference.
+![Power_Connector_Plate]({{ site.baseurl }}/images/20160110/Power_Connector_Plate.png "Power connector plate, 3D design by PantsManUK")
+
+I did de-solder to power switch and re-soldered it in between my PicoPSU and the powerbrick. So the final result from the inside look like this:
+![Re-used_Power_Switch]({{ site.baseurl }}/images/20160110/Power_Switch_Reuse.png "Reconnected the original power switch")
+
+And from the outside it look like this:
+![PSU_outside]({{ site.baseurl }}/images/20160110/picoPSU_Result.png "PSU upgrade final result outside")
 
 ## NIC LEDs
 
