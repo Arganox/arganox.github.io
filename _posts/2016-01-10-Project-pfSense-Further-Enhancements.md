@@ -30,24 +30,25 @@ I'll be updating this post as I go, so stay tuned!
 
 **NOTE** As of version 2.3 of pfSense LCDproc-DEV package seems to be removed but should be [installable manually](https://forum.pfsense.org/index.php?topic=44034.msg645684#msg645684).
 
-Aaa pfSense running on your watchguard, looking nice! Flashing lights and an LCD which displays... absolutely nothing usefull. *sigh*
+Aaa pfSense running on your watchguard, looking nice!  
+Flashing lights and an LCD which displays... absolutely nothing usefull. **sigh...**
+
 Out of the box the LCD of the watchguard will be displaying **PFSense _<BIOS-VERSION>_ Booting OS...**  
-We can use the LCD to display some live stats regarding our watchguard. This can be accomplished with the LCDproc-dev package which is [well described](https://forum.pfsense.org/index.php?topic=7920.msg344513#msg344513) in the forums by _stephenw10_. lets go!
+We can use the LCD to display some live stats regarding our watchguard. This can be accomplished with the LCDproc-dev package which is [well described](https://forum.pfsense.org/index.php?topic=7920.msg344513#msg344513) in the forums by _stephenw10_.  
+Lets go!
 
 - First navigate to System -> Packages. From there click on the “Available Packages” tab. Then search and install “LCDproc-dev” and “Shellcmd“ (I'll be using this in the next part as well). Make sure you select the **dev** version of LCDproc as it includes working drivers for the watchguard LCD. Shellcmd will allow us to execute commands on boot. So here we'll be using it to start the LCDproc service once installed and configured.
 
 - Once these packages are installed, navigate to Services -> LCDproc. Select/change the following: ‘Enable LCDproc at startup’ yes | Com port – Parallel Port 1 | Display Size – 2×20 | Driver – Watchguard Firebox with SDEC.
 
-- By doing this the package will generate the lcdd.conf file which we will be copying to /conf. By doing this via the web GUI there is no need to remount the filesystem in RW. Go to Diagnostics: Command Prompt and run:
-
+- By doing this the package will generate the lcdd.conf file which we will be copying to /conf. By doing this via the web GUI there is no need to remount the filesystem in RW. Go to Diagnostics: Command Prompt and run:  
 ```
 cp /usr/local/etc/LCDd.conf /conf
 ``` 
 
 - Now go back to Services -> LCDproc, uncheck 'Enable LCDproc at startup' and set Com Port to 'none'. You must set the com port as none, that's what the LCDproc-dev config script looks for before it removes the RC start-stop scripts.
 
-- To start the LCDproc server and client with every boot navigate to Services -> shellcmd and add the following commands:
-
+- To start the LCDproc server and client with every boot navigate to Services -> shellcmd and add the following commands:  
 ```
 #Start the LCDproc driver with the confi we created
 /usr/bin/nice -20 /usr/local/sbin/LCDd -r 0 -c /conf/LCDd.conf > /dev/null &
@@ -348,6 +349,6 @@ skc3: <Marvell Gigabit Ethernet (LED mod 2.2)> port 0xcc00-0xccff mem 0xd0428000
 
 ## HDD Caddy & Extreme stuff
 
-I haven't had a go (~~nor the desire to do so~~ at the moment) on either one of these so I guess if you want more info on these you'll have to source the forums.
+I haven't had a go (nor the desire to do so at the moment) on either one of these so I guess if you want more info on these you'll have to source the forums.
 
 I hope this was usefull to anyone! Have fun with your enhanced Firebox.
