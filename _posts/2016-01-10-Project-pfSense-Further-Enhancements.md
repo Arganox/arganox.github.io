@@ -353,10 +353,10 @@ skc3: <Marvell Gigabit Ethernet (LED mod 2.2)> port 0xcc00-0xccff mem 0xd0428000
 
 ## SATA HDD
 
-At first I saw no need to run an HDD in my firebox. But then I figured since I've modded most of the firebox (and was in need fro some more storage) why not go all the way.  
-So I went back to the forums to source some info. And sure.. this project has been done multiple times. I did notice however the successrate of this mod was not at all 100% so I figured I should take some extra time researching the components to be used for this one.  
+At first I saw no need to run an HDD in my firebox. But then I figured since I've modded most of the firebox (and was in need for some more storage) why not go all the way.  
+So I went back to the forums to source some info. And sure.. this project has been done multiple times. But I did notice however the successrate of this mod was not at all 100% so I figured I should take some extra time researching the components to be used for this one.  
 
-So after some [reading](https://forum.pfsense.org/index.php?topic=105261.0) _vizi0n_'s post on the forums I decided I wanted to upgrade my firebox's capacity to >=100GB, I wanted it to run of a SATA drive instead of IDE (since those IDE's are getting rare) and it should be running en up-to-date version of pfSense.
+Inspired by [_vizi0n_'s post](https://forum.pfsense.org/index.php?topic=105261.0) on the pfSense forums I decided I wanted to upgrade my firebox's capacity to >=100GB, wanted it to run of a SATA drive instead of IDE (since those IDE's are getting rare) and it should be running an up-to-date full blown pfSense.
 
 ###Parts list
 
