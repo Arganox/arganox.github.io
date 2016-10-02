@@ -23,6 +23,8 @@ I'll be updating this post as I go, so stay tuned!
             Updated WGXepc installation instructions
 13/09/2016: Installed PicoPSU, documented installation
             Added LCD-dev package instructions
+02/10/2016: Installed SATA HDD drive
+            Documented installation
 ```
 ----
 
@@ -349,8 +351,97 @@ skc3: <Marvell Gigabit Ethernet (LED mod 2.2)> port 0xcc00-0xccff mem 0xd0428000
 ```
 ----
 
-## HDD Caddy & Extreme stuff
+## SATA HDD
 
-I haven't had a go (nor the desire to do so at the moment) on either one of these so I guess if you want more info on these you'll have to source the forums.
+At first I saw no need to run an HDD in my firebox. But then I figured since I've modded most of the firebox (and was in need fro some more storage) why not go all the way.  
+So I went back to the forums to source some info. And sure.. this project has been done multiple times. I did notice however the successrate of this mod was not at all 100% so I figured I should take some extra time researching the components to be used for this one.  
+
+So after some [reading](https://forum.pfsense.org/index.php?topic=105261.0) _vizi0n_'s post on the forums I decided I wanted to upgrade my firebox's capacity to >=100GB, I wanted it to run of a SATA drive instead of IDE (since those IDE's are getting rare) and it should be running en up-to-date version of pfSense.
+
+###Parts list
+
+- SATA drive (reused old 100GB 7K2 RPM Hitachi drive: HTS721010G9SA00)
+- 44 pin (female) IDE connector (used in Dell Inspiron 5000: [eBay](http://www.ebay.com/itm/220813768916))
+- 44 pin (male) to SATA adaptor (to perform IDE <> SATA: [eBay](http://www.ebay.com/itm/251926632597))
+- Null modem cable as terminal BIOS access will be needed
+- Laptop to perform the installation
+
+###First steps
+
+As with all changes.. make a backup of your current config.
+
+Next make sure you bend or desolder the jumper on the IDE/SATA convertor as it will make contact with the firebox case if left untouched. I opted to desolder the jumper labeled JP1.
+
+![Desolder_JP1]({{ site.baseurl }}/images/20160110/JP1.png "Desoldered jumper JP1") 
+
+Make sure you are running at least version 7 of the firebox BIOS.
+
+###Make it spin!
+
+First we will be downloading the latest i386 version of pfSense, no more embedded installs from now on! I downloaded the i386, USB memstick installed with serial console.  
+[https://www.pfsense.org/download/?section=downloads](https://www.pfsense.org/download/?section=downloads)
+
+Next we will [write](https://doc.pfsense.org/index.php/Writing_Disk_Images) the memstick image to a USB key.  
+After we cheked the MD5 sum of our download ofcourse! I'm not kidding.. do check the MD5sum! There is nothing more anoying then to troubleshoot an issue for hours/days only to notice it was your download which was corrupted in the first place.
+
+To install pfSense on the HDD we will need a laptop. Slide the SATA drive in the laptop and plug in the USB key.  
+This was the moment my first issue arrose. On installation I kept getting the error /usr/bin/tar -C /mnt/ -xzpf /install/pfSense.txz FAILED with returncode of 1:
+
+![CAM_timeout]({{ site.baseurl }}/images/20160110/CAM_Error.png "CAM status: Command Timeout") 
+
+I did check the MD5sum which was OK. Rewrote my USB key but the issue persisted..  
+After a lot of googling and forum reading it was the pfSense [wiki](https://doc.pfsense.org/index.php/Boot_Troubleshooting#BIOS.2FDisk_Errors) who pointed me in the right direction.  
+The key here was the AHCI BIOS settings of the laptop I used. To mitigate this error I entered te BIOS setup and configured my SATA controller mode to Compatibility instead of AHCI.
+
+![BIOS_Setting]({{ site.baseurl }}/images/20160110/BIOS.png "Corrected SATA Controller mode in BIOS") 
+
+Once this was done I restarted the installation from USB and it passed flawless! pfSense booted on the laptop! So far so good.
+
+Next pull the freshly baked HDD out the laptop and assemble the parts:
+
+![HDD_Assembly]({{ site.baseurl }}/images/20160110/HDD_Assembly.png "Assembling the HDD parts")
+
+With the HDD in place remove you CF card from it's slot as we will no longer be needing it.
+
+![HDD_Installed]({{ site.baseurl }}/images/20160110/HDD_Installed.png "HDD installed and CF removed")
+
+Now it's time to make our firebox boot from it's new storage.  
+Connect your null modem cable before booting as we will need to tweak some BIOS settings.  
+When the memory check is running press DEL to enter the BIOS of the firebox. Once there navigate to _Standard CMOS Features_. Here you will select _IDE Channel 0 Master_:
+
+![BIOS_HDD]({{ site.baseurl }}/images/20160110/BIOS_HDD.png "Enter HDD setup in BIOS")
+
+In this menu you should see your drive. If this is not the case make sure both _IDE Channel 0 Master_ and _Access Mode_ are set to _Auto_ and perform _IDE HDD Auto-Detection_:
+
+![BIOS_Channel_Master]({{ site.baseurl }}/images/20160110/BIOS_Master.png "IDE Channel 0 Master settings")
+
+With these settings corrected navigate back to the main BIOS menu and go to _Advanced BIOS Features_ and select the first entry _Hard Disk Boot Priority_:
+
+![BIOS_Boot_Prio]({{ site.baseurl }}/images/20160110/BIOS_Boot_Prio.png "Enter the boot prio menu in BIOS")
+
+In this menu make sure your HDD is set as primary boot device.
+
+![BIOS_Boot_Prio_Set]({{ site.baseurl }}/images/20160110/BIOS_Boot_Prio_Set.png "Correct boot prio settings")
+
+When you navigate back to _Advanced BIOS Features_ you'll notice you _First Boot Device_ will be set to _Hard Disk_:
+
+![BIOS_First_Boot]({{ site.baseurl }}/images/20160110/BIOS_First_Boot.png "First Boot Device set to HDD")
+
+One last thing before we can get our firebox to boot!  
+From the main BIOS menu navigate to _Integrated Peripherals_ and enter the sub menu _OnChip IDE Device_
+
+![BIOS_UDMA]({{ site.baseurl }}/images/20160110/BIOS_UDMA.png "Enter the menu to correct UDMA settings")
+
+In this menu you should set the _IDE primary Master PIO_ and _UDMA_ to _Auto_ I also enabled the _IDE HDD Block mode_ and _IDE DMA transfer access_.
+
+![BIOS_UDMA_Set]({{ site.baseurl }}/images/20160110/BIOS_UDMA_Set.png "BIOS OnChip settings")
+
+Now Save and exit the BIOS and let the firebox boot!
+
+![Serial_Boot]({{ site.baseurl }}/images/20160110/Serial_Boot.png "Firebox booted from HDD")
+
+Great success!  
+
+----
 
 I hope this was usefull to anyone! Have fun with your enhanced Firebox.
